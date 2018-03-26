@@ -15,10 +15,10 @@ GPIO.setup(HallPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 while (finished == 0):
 	hallswitch1 = GPIO.input(HallPin)
 	if hallswitch1 == False:
-		print "hallswtich1 = False"
+		print ('hallswtich1 = False')
 		time.sleep(1)
 	if hallswitch1 == True:
-		print "hallswitch1 = True"
+		print ('hallswitch1 = True')
 		time.sleep(1)
 
 #Imbedded if statements and then do a final check one second later to make sure that it's not a weird error?
