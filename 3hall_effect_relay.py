@@ -22,27 +22,28 @@ GPIO.setup(HallPin3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(RelaySwitch, GPIO.OUT)
 GPIO.output(RelaySwitch, GPIO.LOW) #set to low, relay should be set on Normally Open
  
-hallswitch1 = GPIO.input(HallPin1)
-hallswitch2 = GPIO.input(HallPin2)
-hallswitch3 = GPIO.input(HallPin3)
- 
 while (finished == 0):
-	if (hallswitch1 == True and hallswitch2 == True and hallswitch3 == True):
-		print "first check all hallswitches = True"
-		time.sleep(1)
-		if (hallswitch1 == True and hallswitch2 == True and hallswitch3 == True):
-		print "final check all hallswitches = True"
-		GPIO.output(RelaySwitch, GPIO.HIGH)
-		time.sleep(120)
-		print "2 minutes finished, check again"
-	else
-		if hallswitch1 == False:
-			print "hallswtich1 = False"
-			GPIO.output(RelaySwitch, GPIO.LOW)
-		if hallswitch2 == False:
-			print "hallswitch2 = False"
-			GPIO.output(RelaySwitch, GPIO.LOW)
-		if hallswitch3 == False:
-			print "hallswitch3 = False"	
-			GPIO.output(RelaySwitch, GPIO.LOW)
-		time.sleep(1)
+    hallswitch1 = GPIO.input(HallPin1)
+    hallswitch2 = GPIO.input(HallPin2)
+    hallswitch3 = GPIO.input(HallPin3)
+    if (hallswitch1 == False and hallswitch2 == False and hallswitch3 == False):
+        print ("first check all hallswitches: triggered")
+        time.sleep(1)
+        if (hallswitch1 == False and hallswitch2 == False and hallswitch3 == False):
+            print ("final check all hallswitches: triggered")
+            print ("turning off relay/maglock")
+            GPIO.output(RelaySwitch, GPIO.HIGH)
+            time.sleep(120)
+            #make time longer about 2 min?
+            print ("2 minutes finished, check again")
+    else:
+        if hallswitch1 == True:
+            print ("hallswtich1 untriggered")
+            GPIO.output(RelaySwitch, GPIO.LOW)
+        if hallswitch2 == True:
+            print ("hallswitch2 Untriggered")
+            GPIO.output(RelaySwitch, GPIO.LOW)
+        if hallswitch3 == True:
+            print ("hallswitch3 Untriggered")   
+            GPIO.output(RelaySwitch, GPIO.LOW)
+        time.sleep(1)
