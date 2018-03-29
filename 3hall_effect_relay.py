@@ -5,7 +5,7 @@ import time
 #Sam, I expect that you will change this drastically to fit with the GUI. Go right ahead, this is a starter file - Adam
 
 HallPin1 = 2 #Physical pin 3
-HallPin2 = 3 #Physical pin 5
+HallPin2 = 17 #Physical pin 11, Do not use Physical pin 5 / BCM pin 3 because it causes Raspberry Pi not to boot correctly.
 HallPin3 = 4 #Physical pin 7
 finished = 0
 RelaySwitch = 14 #BCM of output for relay
