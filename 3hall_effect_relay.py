@@ -20,7 +20,8 @@ GPIO.setup(HallPin1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(HallPin2, GPIO.IN, pull_up_down=GPIO.PUD_UP)    
 GPIO.setup(HallPin3, GPIO.IN, pull_up_down=GPIO.PUD_UP)  
 GPIO.setup(RelaySwitch, GPIO.OUT)
-GPIO.output(RelaySwitch, GPIO.LOW) #set to low, relay should be set on Normally Open
+GPIO.output(RelaySwitch, GPIO.HIGH) 
+#set to High, relay should be set on Normally Closed. I think this is correct...
  
 while (finished == 0):
     hallswitch1 = GPIO.input(HallPin1)
@@ -32,18 +33,20 @@ while (finished == 0):
         if (hallswitch1 == False and hallswitch2 == False and hallswitch3 == False):
             print ("final check all hallswitches: triggered")
             print ("turning off relay/maglock")
-            GPIO.output(RelaySwitch, GPIO.HIGH)
+            GPIO.output(RelaySwitch, GPIO.LOW)
             time.sleep(120)
             #make time longer about 2 min?
             print ("2 minutes finished, check again")
     else:
         if hallswitch1 == True:
             print ("hallswtich1 untriggered")
-            GPIO.output(RelaySwitch, GPIO.LOW)
+            GPIO.output(RelaySwitch, GPIO.HIGH)
         if hallswitch2 == True:
             print ("hallswitch2 Untriggered")
-            GPIO.output(RelaySwitch, GPIO.LOW)
+            GPIO.output(RelaySwitch, GPIO.HIGH)
         if hallswitch3 == True:
             print ("hallswitch3 Untriggered")   
-            GPIO.output(RelaySwitch, GPIO.LOW)
+            GPIO.output(RelaySwitch, GPIO.HIGH)
         time.sleep(1)
+
+#GPIO.cleanup
