@@ -1,5 +1,9 @@
 # 3Hall-Effect-Sensor-Relay
 
+Raspberry Pi runs the puzzle.
+Version: a01041; 2 Model B; Q1 2015
+Running Raspbian version: 9 (stretch)
+
 To Do:
 3/9/2018
 Using the basics of the hall_sensor_basic_test.py for the proof of concept (that the hall effect sensors act as a switch) build a GUI which incorporates the intentions of the picture GUI_example-hall-effect.jpg

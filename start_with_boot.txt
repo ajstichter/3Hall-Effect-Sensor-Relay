@@ -1,0 +1,14 @@
+Trying the LXDE start way
+https://www.raspberrypi.org/forums/viewtopic.php?t=43509
+https://www.raspberrypi-spy.co.uk/2014/05/how-to-autostart-apps-in-rasbian-lxde-desktop/ (method 2 is working)
+
+For Raspbian Jessie:
+sudo nano ~/.config/lxsession/LXDE-pi/autostart
+on the last line put
+@lxterminal -e /home/pi/.../script.py
+
+For Raspbian Stretch:
+sudo nano ~/.config/lxsession/LXDE-pi/autostart
+on the last line put
+@lxterminal -e python3.5 /home/pi/HallEfRe.py
+(I changed the file to HallEfRe.py)
